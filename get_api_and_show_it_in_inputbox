@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+
+    <button onclick="callApi()">apitest</button>
+
+
+    <div>
+        <input type="text" id = "gaga1" name="gaga1" size="30" maxlength="20">
+    </div>
+
+    <div>
+        <input type="text" id = "gaga2" name="gaga2" size="30" maxlength="20">
+    </div>
+
+    <div>
+        <input type="text" id = "gaga3" name="gaga3" size="30" maxlength="20">
+    </div>
+
+    <button onclick="callApi2()">apitest2</button>
+
+    <div>
+        <input type="text" id = "gaga4" name="gaga4" size="30" maxlength="20">
+    </div>
+
+    <div>
+        <input type="text" id = "gaga5" name="gaga5" size="30" maxlength="20">
+    </div>
+
+    <div>
+        <input type="text" id = "gaga6" name="gaga6" size="30" maxlength="20">
+    </div>
+
+
+
+    {% for d in data %}
+
+    <p>{{ d["name"] }}</p>
+
+    {% endfor %}
+
+
+<script>
+        async function callApi(){
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+        //console.log(res);
+        const users = await res.json();
+        console.log(users);
+        name1 = users[0]["name"];
+        name2 = users[1]["name"];
+        name3 = users[2]["name"];
+        document.getElementById('gaga1').value = name1;
+        document.getElementById('gaga2').value = name2;
+        document.getElementById('gaga3').value = name3;
+        }
+
+
+        async function callApi2(){
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+        //console.log(res);
+        const users = await res.json();
+        console.log(users);
+        name4 = users[3]["name"];
+        name5 = users[4]["name"];
+        name6 = users[5]["name"];
+        document.getElementById('gaga4').value = name4;
+        document.getElementById('gaga5').value = name5;
+        document.getElementById('gaga6').value = name6;
+        }
+
+
+</script>
+
+</body>
+</html>
